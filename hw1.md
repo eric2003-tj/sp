@@ -25,3 +25,6 @@
   }
 
 ```
+
+In this question, I opened every assigned files first using open function which taught in class and assigned every file to a fd_i. Here, I used an "if-statement" to check whether the file's mode was append or not.
+Then, I used a read function to read input from stdin, and then use lseek function to make sure that the input will be written to correct position.Finally, I used close function to close the file.
