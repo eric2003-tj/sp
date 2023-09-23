@@ -50,3 +50,28 @@ Initiallty, ">" means that we redirects stdout(1) to outfile. Then, "2>&1" means
 If I want to compile a "main.c" file and I do not want to see error messages in terminal if they exist. Then I can use 2>&1 to redirect the message to other files.
 
 Ex: gcc main.c > outfile 2>&1
+
+## Q3
+
+**3.1**
+No  
+If a file is opened with append mode, it can not change writing location even eith using lseek.
+
+**3.2**
+No  
+It may lead to same directory.(/)
+
+**3.3**
+Yes
+
+**3.4**
+Yes
+
+**3.5**
+Yes
+
+Reference
+
+1. https://www.ibm.com/docs/en/aix/7.2?topic=f-fcntl-dup-dup2-subroutine
+2. https://segmentfault.com/a/1190000040086046
+
