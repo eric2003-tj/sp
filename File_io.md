@@ -95,3 +95,7 @@ I-node is both stored physically on the storage device and in-memory:
 2. The OS kernel reads the I-node from the disk to memory when the associated file is opened
 
 <img src = "https://github.com/eric2003-tj/sp/blob/main/node.png" />
+
+## offset
+
+

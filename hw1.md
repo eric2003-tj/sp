@@ -5,7 +5,7 @@
 ```
   Assume there are m files
   for (i = 1 to m){
-    if(mode == "--append"){
+    if(OPTION == "--append" || OPTION == "-a"){
         fd_i = open(args[i],O_APPEND) // fd_i means the ith file descriptor
     }else{
         fd_i = open(args[i],O_RDWR)
