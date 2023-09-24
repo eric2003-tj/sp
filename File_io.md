@@ -39,3 +39,16 @@ On a successful call, the returned file descriptor will be the lowest-numbered f
 2. oflag is to specify the "access modes".
 3. mode specifies the file mode bits(What permission does the user get) to be applied only when a new file is created; it is otherwise omitted.
 <img src = "https://github.com/eric2003-tj/sp/blob/main/mode.png" />
+
+**openat**
+
+openat() operates exactly the same way as open() except that the fd parameter is used in conjunction with the path argument.  
+1. If path is absolute, fd can be ignored.
+2. If path is relative:need to assign a fd. (AT_FDCWD is current working directory)
+
+## close
+
+```
+#include <fcntl.h>
+int close(int fd);
+```
