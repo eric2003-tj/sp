@@ -23,3 +23,19 @@ The Unix Kernel refers to an open file using file descriptor:
 
 <img src = "https://github.com/eric2003-tj/sp/blob/main/file%20descriptor.png" />
 
+## open and openat
+
+```
+#include <fcntl.h>
+// For both functions, the file descriptor is returned on a successful call; and -1 is returned on an error
+int open(const char* path,int oflag,...../*mode_t mode*/);
+int openat(int fd,const char* path,int oflag,...../*mode_t mode*/);
+```
+On a successful call, the returned file descriptor will be the lowest-numbered file descriptor not currently opened by the process.
+
+**open**
+
+1. path is the path of the file to open or create.
+2. oflag is to specify the "access modes".
+3. mode specifies the file mode bits(What permission does the user get) to be applied only when a new file is created; it is otherwise omitted.
+
