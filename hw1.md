@@ -6,7 +6,7 @@
   Assume there are m files
   for (i = 1 to m){
     if(mode == "--append"){
-        fd_i = open(args[i],O_RDWR,mode = O_APPEND) // fd_i means the ith file descriptor
+        fd_i = open(args[i],O_APPEND) // fd_i means the ith file descriptor
     }else{
         fd_i = open(args[i],O_RDWR)
     }
