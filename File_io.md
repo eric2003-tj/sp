@@ -63,4 +63,33 @@ A file is created and opened write-only by creat function. It is obsolete now.
 ## Unix kernel support for File_io
 <img src = "https://github.com/eric2003-tj/sp/blob/main/kernel_support.png" />
 
+The Unix OS kernel uses three data structures to represent an open file. The relationships among them determine the effect one process has on the another.
 
+**open file descriptor table(per_process)**
+
+one entry per each file descriptor, each entry contains:
+
+1. The file descriptor flag
+2. A pointer to a system open file table entry
+
+**open file table**
+
+each entry contains:
+
+1. The file status flag for the file (read/write/append/sync/nonblocking)
+2. current file offset
+3. A pointer to the v-node table entry for the file
+
+**V-node table**
+
+each entry contains a V-node data structure that contains:
+
+1. The pointer to the i-node structure of the file in memory (read from disk when the file is opened)
+2. V-node information
+
+**I-node**
+
+I-node is both stored physically on the storage device and in-memory:
+
+1. Contains the metadata about the file: file owner, file size, residing device, protection information,locations of the data blocks comprising a file
+2. The OS kernel reads the I-node from the disk to memory when the associated file is opened
