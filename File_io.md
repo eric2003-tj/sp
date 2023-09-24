@@ -93,3 +93,5 @@ I-node is both stored physically on the storage device and in-memory:
 
 1. Contains the metadata about the file: file owner, file size, residing device, protection information,locations of the data blocks comprising a file
 2. The OS kernel reads the I-node from the disk to memory when the associated file is opened
+
+<img src = "https://github.com/eric2003-tj/sp/blob/main/node.png" />
