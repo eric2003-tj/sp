@@ -21,5 +21,5 @@ The Unix Kernel refers to an open file using file descriptor:
 3. The file descriptors are per-process; different processes may have the same file descriptor.
 4. The numbers 0,1,and 2, also maps to constants: STDIN_FILENO,STDOUT_FILENO,and STDERR_FILENO.(The constants are defined in <unistd.h>).
 
-<img src = "[file descriptor.png](https://github.com/eric2003-tj/sp/blob/main/file%20descriptor.png)https://github.com/eric2003-tj/sp/blob/main/file%20descriptor.png" />
+<img src = "https://github.com/eric2003-tj/sp/blob/main/file%20descriptor.png" />
 
