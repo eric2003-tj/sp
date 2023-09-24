@@ -38,4 +38,4 @@ On a successful call, the returned file descriptor will be the lowest-numbered f
 1. path is the path of the file to open or create.
 2. oflag is to specify the "access modes".
 3. mode specifies the file mode bits(What permission does the user get) to be applied only when a new file is created; it is otherwise omitted.
-
+<img src = "https://github.com/eric2003-tj/sp/blob/main/mode.png" />
