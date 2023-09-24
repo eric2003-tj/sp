@@ -60,3 +60,7 @@ int creat(const char*path,mode_t mode);
 ```
 A file is created and opened write-only by creat function. It is obsolete now.
 
+## Unix kernel support for File_io
+<img src = "https://github.com/eric2003-tj/sp/blob/main/kernel_support.png" />
+
+
