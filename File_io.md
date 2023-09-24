@@ -52,3 +52,11 @@ openat() operates exactly the same way as open() except that the fd parameter is
 #include <fcntl.h>
 int close(int fd);
 ```
+## creat
+
+```
+#include <fcntl.h>
+int creat(const char*path,mode_t mode);
+```
+A file is created and opened write-only by creat function. It is obsolete now.
+
