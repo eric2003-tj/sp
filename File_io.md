@@ -192,3 +192,48 @@ ssize_t pwrite(int fd, const void *buf, size_t count, off_t offset);
 
 offset means the start point to read or write, and the count means the number of bytes to read(or write).
 
+## dup and dup2
+
+```
+#include <unistd.h>
+int dup(int fd);
+int dup2(int fd,int fd2);
+```
+
+The functionality of dup is to generate a new file descriptor that points to the same entry of the open table as fd.  And dup2 is let fd2 point to the same entry as fd and return fd2 finally.
+
+**Some equivalent function via fcntl**
+
+```
+dup(fd) == fcntl(fd,F_DUPFD,0);
+dup(fd,fd2) == close(fd2); fcntl(fd,F_DUPFD,fd2);
+```
+
+## sync,fsync,fdatasync
+
+```
+#include <unistd.h>
+
+void sync(void);
+// For both fsync and fdatasync, 0 is returned on the successful call,-1 otherwise.
+int fsync(int fd);
+int fdatasync(int fd);
+```
+Unix provides sync(), fsync(), and fdatasync() to ensure consistency of the file system on disk with the contents of the buffer cache.
+1. A database program may call these sync functions to synchronize data to storage for consistency
+2. A system daemon in Unix periodically calls sync() to flush kernel’s block buffers
+
+**sync()**
+
+1. queues all modified block buffers in the kernel for writing to the disk
+2. sync() only does queuing and returns; it does not wait for the disk writes to take place.
+
+**fsync()**
+
+Refers to a single file (specified by fd); synchronize the data and metadata (e.g. i-node) of the file with the storage device.
+
+**fdatasync**
+
+Refers to a single file (specified by fd); synchronize the data of the file with the storage device, synchronize metadata only when needed
+
+fsync() and fdatasync() will wait for disk writes to complete before returning.
