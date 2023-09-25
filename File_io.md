@@ -175,5 +175,8 @@ if (lseek(fd, 0, SEEK_END) < 0) err_sys(“lseek error”);
 if (write(fd, buf, 100) != 100) err_sys(“write error”);
 ```
 
+If below situation happens,
 <img src = "https://github.com/eric2003-tj/sp/blob/main/process.png" />
+
+Then the what we wrote in process B will be overwritten.  AAtomic operations are the operations that execute as a single unified operation. In simple terms, when an atomic operation is being executed, no other process can read through or modify the data that is currently used by atomic operation.
 
