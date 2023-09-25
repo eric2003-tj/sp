@@ -114,8 +114,8 @@ An open file's current offset can be set via lseek function.
 1. fd is the file descriptor of the target file.
 2. whence determines the interpretation of the offset parameter, can be set to three values:
 
-$\qquad$ 1. SEEK_SET: the file’s offset is set to offset bytes from the beginning of the file
-$\qquad$ 2. SEEK_CUR: the file’s offset is set to its current value plus the offset (offset can be positive or negative)
+$\qquad$ 1. SEEK_SET: the file’s offset is set to offset bytes from the beginning of the file  
+$\qquad$ 2. SEEK_CUR: the file’s offset is set to its current value plus the offset (offset can be positive or negative)  
 $\qquad$ 3. SEEK_END: the file’s offset is set to the size of the file plus the offset (offset can be positive or negative)
 
 
