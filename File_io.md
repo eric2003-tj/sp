@@ -180,3 +180,15 @@ If below situation happens,
 
 Then the what we wrote in process B will be overwritten.  AAtomic operations are the operations that execute as a single unified operation. In simple terms, when an atomic operation is being executed, no other process can read through or modify the data that is currently used by atomic operation.
 
+**pread and pwrite**
+
+They can help us read and write a file atomically.
+
+```
+#include <unistd.h>
+ssize_t pread(int fd, void *buf, size_t count, off_t offset);
+ssize_t pwrite(int fd, const void *buf, size_t count, off_t offset);
+```
+
+offset means the start point to read or write, and the count means the number of bytes to read(or write).
+
