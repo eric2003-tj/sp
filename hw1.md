@@ -34,13 +34,13 @@ Then, I used a read function to read input from stdin, and then use lseek functi
 ./a.out > outfile 2>&1
 ```
 
-Initiallty, ">" means that we redirects stdout(1) to outfile. Then, "2>&1" means that we redirects stderr(2) to where stdout(1) directs to, thus, stderr will be redirected to outfile. outfile will have both stdout and stderr messages. 
+Initiallty, ">" means that we redirects stdout(1) to outfile(file descriptor 1 points to the entry that corresponds to outfile in open table). Then, "2>&1" means that we redirects stderr(2) to where stdout(1) directs to, thus, stderr will be redirected to outfile(file descriptor 2 points to the entry that corresponds to outfile in open table). outfile will have both stdout and stderr messages. 
 
 ```
 ./a.out 2>&1 > outfile
 ```
 
-"2>&1" means that we redirects stderr(2) to where stdout(1) directs to, thus, stderr will be redirected to terminal. Then ">" means we redirect stdout(1) to outfile, thus, outfile will have stdout message.
+"2>&1" means that we redirects stderr(2) to where stdout(1) directs to, thus, stderr will be redirected to terminal(file descriptor 2 points to the entry that corresponds to stdout in open table). Then ">" means we redirect stdout(1) to outfile(file descriptor 1 points to the entry that corresponds to outfile in open table), thus, outfile will have stdout message.
 
 **2.2**
 
