@@ -118,6 +118,37 @@ $\qquad$ 1. SEEK_SET: the file’s offset is set to offset bytes from the beginn
 $\qquad$ 2. SEEK_CUR: the file’s offset is set to its current value plus the offset (offset can be positive or negative)  
 $\qquad$ 3. SEEK_END: the file’s offset is set to the size of the file plus the offset (offset can be positive or negative)
 
+**Whether stdandard input is capable of seeking**
+
+For a program like this: 
+
+```
+#include <unistd.h>
+int main(){
+  if(lseek(STDIN_FILENO,0,SEEK_CUR) == -1){
+    printf("fail\n");
+  }else{
+    printf("success\n");
+  }
+}
+```
+
+Below command will work:
+
+```
+./a.out < test.txt
+```
+
+Below cannot:
+
+```
+cat test.txt | ./a.out
+```
+
+pipe, FIFO, and socket can not work!
+
+
+
 
 
 
