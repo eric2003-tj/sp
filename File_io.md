@@ -148,7 +148,21 @@ cat test.txt | ./a.out
 pipe, FIFO, and socket can not work!
 
 
+## read
 
+```
+#include <unistd.h>
+ssize_t read(int fd,void *buf,size_t buffersize);
+```
 
+Data is read via fd into buf.The read operation starts at the current offset,and it will be increased by the number of bytes actually read.
 
+## write
+
+```
+#include <unistd.h>
+ssize_t write(int fd,void *buf,size_t buffersize);
+```
+
+Buf is written to the file via fd. And it will return the number of bytes that are actually written. It still starts at the current offset, and it will be increased by the number of bytes written in the file.  If the O_APPEND option was specified when the file was opened, the file’s offset is set to the current end of file before each write operation.
 
