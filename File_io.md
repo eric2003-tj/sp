@@ -166,3 +166,14 @@ ssize_t write(int fd,void *buf,size_t buffersize);
 
 Buf is written to the file via fd. And it will return the number of bytes that are actually written. It still starts at the current offset, and it will be increased by the number of bytes written in the file.  If the O_APPEND option was specified when the file was opened, the file’s offset is set to the current end of file before each write operation.
 
+## Atomic operation
+
+Since different processes may access the same file, it will intefere the change of the file. For example, assume below code is executed by two processes:
+
+```
+if (lseek(fd, 0, SEEK_END) < 0) err_sys(“lseek error”);
+if (write(fd, buf, 100) != 100) err_sys(“write error”);
+```
+
+<img src = "https://github.com/eric2003-tj/sp/blob/main/process.png" />
+
