@@ -98,4 +98,26 @@ I-node is both stored physically on the storage device and in-memory:
 
 ## offset
 
+An integer that counts the number of bytes from the start of the file. The value of the offset must be positive,however,some devices allow negative bytes.  By default,the offset is initiallized as 0 when the file is opened unless using append mode.  Read and write will increment the offset of the file.
+
+## lseek
+
+```
+#include <unistd.h>
+off_t lseek(int fd,off_t offset,int whence);
+```
+
+An open file's current offset can be set via lseek function.
+
+**lseek_parameters**
+
+1. fd is the file descriptor of the target file.
+2. whence determines the interpretation of the offset parameter, can be set to three values:
+
+$\qquad$ 1. SEEK_SET: the file’s offset is set to offset bytes from the beginning of the file
+$\qquad$ 2. SEEK_CUR: the file’s offset is set to its current value plus the offset (offset can be positive or negative)
+$\qquad$ 3. SEEK_END: the file’s offset is set to the size of the file plus the offset (offset can be positive or negative)
+
+
+
 
