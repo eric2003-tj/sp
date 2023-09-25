@@ -237,3 +237,21 @@ Refers to a single file (specified by fd); synchronize the data and metadata (e.
 Refers to a single file (specified by fd); synchronize the data of the file with the storage device, synchronize metadata only when needed
 
 fsync() and fdatasync() will wait for disk writes to complete before returning.
+
+## fcntl()
+
+```
+#include <fcntl.h>
+int fcntl(int fd,int cmd,/int arg/);
+```
+
+fcntl performs an operation(specified by cmd) for an open file fd.  There are 11 different cmds supporting five different purposes.
+
+1. Duplicate an existing descriptor 
+2. Get/set file descriptor flags 
+3. Get/set file status flags
+4. Get/set asynchronous I/O ownership
+5. Get/Set file record locks
+
+fcntl() returns the file status flags for fd: cmd: F_GETFL  fcntl() sets the file status flag to the value of the third
+argument : cmd: F_SETFL.
